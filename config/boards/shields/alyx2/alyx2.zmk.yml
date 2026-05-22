@@ -1,0 +1,9 @@
+file_format: "1"
+id: alyx2
+name: ALYX2
+type: shield
+url: https://example.com
+requires: [pro_micro]
+features:
+  - keys
+  - encoder

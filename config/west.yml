@@ -1,16 +1,16 @@
 manifest:
   remotes:
-    - name: petejohanson
-      url-base: https://github.com/petejohanson
-    - name: zmk
+    - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: infused-kim
+      url-base: https://github.com/infused-kim
   projects:
     - name: zmk
-      remote: zmk
+      remote: zmkfirmware
       revision: main
       import: app/west.yml
-    - name: cirque-input-module
-      remote: petejohanson
+    - name: kb_zmk_ps2_mouse_trackpoint_driver
+      remote: infused-kim
       revision: main
   self:
     path: config
