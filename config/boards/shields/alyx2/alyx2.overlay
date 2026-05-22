@@ -11,6 +11,7 @@
 	chosen {
 		zmk,kscan = &kscan0;
 		zmk,matrix-transform = &default_transform;
+		zephyr,console = &cdc_acm_uart;
 	};
 
 	default_transform: keymap_transform_0 {
@@ -99,7 +100,12 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4)  RC(5,0) RC(5,1) RC(5,2) RC(5,3) RC(5,4)
 &spi2 { interrupts = <35 3>; };
 &rtc2 { interrupts = <36 3>; };
 &i2s0 { interrupts = <37 3>; };
-&usbd { interrupts = <39 3>; };
+&usbd {
+	interrupts = <39 3>;
+	cdc_acm_uart: cdc_acm_uart {
+		compatible = "zephyr,cdc-acm-uart";
+	};
+};
 &uart1 { interrupts = <40 3>; };
 &qspi { interrupts = <41 3>; };
 &pwm3 { interrupts = <45 3>; };
