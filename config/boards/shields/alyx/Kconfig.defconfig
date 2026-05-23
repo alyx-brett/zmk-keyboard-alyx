@@ -6,4 +6,8 @@ if SHIELD_ALYX
 config ZMK_KEYBOARD_NAME
     default "alyx"
 
+
+config ZMK_BLE
+    def_bool y
+
 endif

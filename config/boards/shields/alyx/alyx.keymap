@@ -45,51 +45,15 @@
 
 	combos {
 		compatible = "zmk,combos";
-		combos_lgui {
-			key-positions = <0 5>;
-			bindings = <&kp LGUI>;
-			timeout-ms = <50>;
-		};
-		combos_lalt {
-			key-positions = <1 6>;
-			bindings = <&kp LALT>;
-			timeout-ms = <50>;
-		};
-		combos_lshft {
-			key-positions = <2 7>;
-			bindings = <&kp LSHFT>;
-			timeout-ms = <50>;
-		};
-		combos_lctrl {
-			key-positions = <3 8>;
-			bindings = <&kp LCTRL>;
-			timeout-ms = <50>;
-		};
-		combos_rctrl {
-			key-positions = <10 15>;
-			bindings = <&kp RCTRL>;
-			timeout-ms = <50>;
-		};
-		combos_rshft {
-			key-positions = <11 16>;
-			bindings = <&kp RSHFT>;
-			timeout-ms = <50>;
-		};
-		combos_ralt {
-			key-positions = <12 17>;
-			bindings = <&kp RALT>;
-			timeout-ms = <50>;
-		};
-		combos_rgui {
-			key-positions = <13 18>;
-			bindings = <&kp RGUI>;
-			timeout-ms = <50>;
-		};
-		combos_mclk {
-			key-positions = <24 25>;
-			bindings = <&mkp MCLK>;
-			timeout-ms = <50>;
-		};
+		combos_lgui  { key-positions = <0  5>;  bindings = <&kp LGUI>;  timeout-ms = <50>; };
+		combos_lalt  { key-positions = <1  6>;  bindings = <&kp LALT>;  timeout-ms = <50>; };
+		combos_lshft { key-positions = <2  7>;  bindings = <&kp LSHFT>; timeout-ms = <50>; };
+		combos_lctrl { key-positions = <3  8>;  bindings = <&kp LCTRL>; timeout-ms = <50>; };
+		combos_rctrl { key-positions = <10 15>; bindings = <&kp RCTRL>; timeout-ms = <50>; };
+		combos_rshft { key-positions = <11 16>; bindings = <&kp RSHFT>; timeout-ms = <50>; };
+		combos_ralt  { key-positions = <12 17>; bindings = <&kp RALT>;  timeout-ms = <50>; };
+		combos_rgui  { key-positions = <13 18>; bindings = <&kp RGUI>;  timeout-ms = <50>; };
+		combos_mclk  { key-positions = <24 25>; bindings = <&mkp MCLK>; timeout-ms = <50>; };
 	};
 
 	keymap {
@@ -97,9 +61,10 @@
 		base_layer {
 			display-name = "Base";
 			bindings = <
-	&kp B &kp Y &kp O &kp U       &lt SYM SPC    &kp L   &kp D &kp W &kp V       &lt FUN BSPC
-	&kp C &kp I &kp E &kp A       &kp TAB        &kp H   &kp T &kp S &kp N       &kp RET
-	&kp G &kp X &kp J &kp K       &lt CFG ESC    &kp R   &kp M &kp F &kp P       &mo CFG
+	&kp B &kp Y &kp O &kp U          &kp L &kp D &kp W &kp V      
+	&kp C &kp I &kp E &kp A          &kp H &kp T &kp S &kp N       
+	&kp G &kp X &kp J &kp K          &kp R &kp M &kp F &kp P     
+	&lt CFG ESC &kp TAB &lt SYM SPC  &lt FUN BSPC &kp RET &mo CFG
 			>;
 			sensor-bindings = <&scroll_encoder>;
 		};
@@ -107,9 +72,10 @@
 		sym_layer {
 			display-name = "Sym";
 			bindings = <
-	&kp N1 &kp N2 &kp N3 &kp N4 &trans       &kp N7 &kp N8 &kp N9 &kp N0 &trans
-	&kp MINUS &kp EQUAL &kp GRAVE &kp BSLH &trans  &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans
-	&kp SQT &kp SEMI &kp Z &kp Q   &trans       &trans &kp LBKT &kp RBKT &kp FSLH &trans
+	  &none     &kp GRAVE &kp BSLH  &kp FSLH      &kp N1 &kp N2 &kp N3 &kp N4
+      &kp SQT   &kp MINUS &kp COMMA &kp DOT       &kp N5 &kp N6 &kp N7 &kp N8
+      &kp EQUAL &kp SEMI  &kp LBKT  &kp RBKT      &kp N9 &kp N0 &kp Z  &kp Q
+                &trans    &save     &mt LSHFT TAB &trans &none &trans
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
@@ -117,9 +83,10 @@
 		fun_layer {
 			display-name = "Fun";
 			bindings = <
-	&kp F1 &kp F2 &kp F3 &kp F4   &trans       &trans       &mkp LCLK &mkp RCLK &mkp MCLK &trans
-	&mmv MOVE_UP &mmv MOVE_DOWN &mmv MOVE_LEFT &mmv MOVE_RIGHT &trans  &msc SCRL_UP &msc SCRL_DOWN &msc SCRL_LEFT &msc SCRL_RIGHT &trans
-	&trans &trans &trans &trans   &trans       &trans       &trans    &trans    &trans    &trans
+      &none    &none     &none     &none     &kp F1  &kp F2  &kp F3  &kp F4
+      &kp HOME &kp PG_DN &kp PG_UP &kp END   &kp F5  &kp F6  &kp F7  &kp F8
+      &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &kp F9  &kp F10 &kp F11 &kp F12
+      &trans &trans    &trans    &kp DEL &caps_word &trans
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
@@ -127,9 +94,10 @@
 		cfg_layer {
 			display-name = "Config";
 			bindings = <
-	&bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &trans  &bt BT_SEL 4 &bt BT_SEL 5   &bootloader &sys_reset &trans
-	&bt BT_CLR &trans &trans &trans      &trans       &trans   &trans       &trans      &trans     &trans
-	&trans      &trans &trans &trans      &trans       &trans   &trans       &trans      &save      &trans
+      &none &none &none &none    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3
+      &none &none &none &none    &bt BT_SEL 4 &bt BT_NXT   &bt BT_PRV   &none
+      &none &none &none &none    &bt BT_CLR   &none        &out OUT_TOG &sys_reset
+       &trans &kp CAPS &trans    &trans       &trans       &trans
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
